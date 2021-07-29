@@ -19,7 +19,7 @@ if (typeof window !== "undefined") {
   // import installation scripts
   import("./install").then((install) => {
     // install tousfacteurs
-    install(defaultSettings);
+    install.default(defaultSettings);
   });
 } else {
   // warn the current system is not supported
