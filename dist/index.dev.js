@@ -79,7 +79,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       versions: [_package["default"].version],
       apiKey: apiKey
     };
-    console.log("Tousfacteurs default settings: ", defaultSettings);
+    console.log("Tousfacteurs default settings: ", defaultSettings); // import installation scripts
+
+    var install = impor("./install"); // install tousfacteurs
+
+    install(defaultSettings);
   } else {
     // warn the current system is not supported
     console.log("The current system is not supported.");
