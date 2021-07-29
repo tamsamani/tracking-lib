@@ -7,13 +7,6 @@ on:
     branches:
       - master
 
-env:
-  # webpack mode
-  - name: NODE_ENV
-    value: production
-  - name: WEBPACK_MODE
-    value: production
-
 jobs:
   # Build
   build:
