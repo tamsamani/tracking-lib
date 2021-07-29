@@ -1,8 +1,8 @@
-import packageJson from "../package.json";
+import { name, version, description } from "../package.json";
 
 // Export
 export default {
-  name: packageJson.name,
-  version: packageJson.version,
-  description: packageJson.description,
+  name,
+  version,
+  description,
 };

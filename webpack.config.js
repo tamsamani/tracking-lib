@@ -27,20 +27,11 @@ const webpackConfig = {
     filename: isDev ? "index.dev.js" : "index.js",
     path: BUILD_DIR,
     clean: !isDev,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
-      },
-    ],
+    chunkFilename: (pathData) => {
+      console.log(pathData);
+      return pathData.chunk.name === "index" ? "[name].js" : "core/[name].js";
+    },
+    library: "TF",
   },
   optimization,
 };
