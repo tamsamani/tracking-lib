@@ -31,6 +31,12 @@ if (typeof window !== "undefined") {
   };
 
   console.log("Tousfacteurs default settings: ", defaultSettings);
+
+  // import installation scripts
+  const install = impor("./install");
+
+  // install tousfacteurs
+  install(defaultSettings);
 } else {
   // warn the current system is not supported
   console.log("The current system is not supported.");
