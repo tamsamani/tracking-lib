@@ -4,7 +4,7 @@ import pkg from "./package";
 console.log("Tousfacteurs: ", pkg.name, "v" + pkg.version);
 // check if code run on browsers
 if (typeof window !== "undefined") {
-  console.log("Tousfacteurs is running in a browser");
+  console.log("Tousfacteurs is running in a browser with version", pkg.version);
 
   function extractScriptParamters() {
     // curent script source

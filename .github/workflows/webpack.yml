@@ -48,6 +48,6 @@ jobs:
           git config --global user.name "${{ secrets.GITHUB_NAME }}"
           git config --global github.token "${{ secrets.GITHUB_TOKEN }}"
 
-          git add /dist/*
+          git add ./dist/*
           git commit -m "Build Dist Files"
           git push origin master
