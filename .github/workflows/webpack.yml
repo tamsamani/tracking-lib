@@ -1,7 +1,19 @@
 name: NodeJS with Webpack
 
 on:
+  # manually trigger the workflow
+  dispatch_event:
+    name: webpack
+    payload:
+      branch: master
+
+  # 'push' is the default event
   push:
+    paths:
+      - src/*
+    branches:
+      - master
+  pull_request:
     paths:
       - src/*
     branches:
