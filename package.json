@@ -1,7 +1,8 @@
 {
   "name": "@tousfactor/tracking-lib",
   "version": "0.1.1",
-  "main": "index.js",
+  "description": "A library for tracking user interactions with your application",
+  "private": true,
   "repository": "https://github.com/tamsamani/tracking-lib.git",
   "author": "Mohamed Tamsamani <mohamed@tousfacteurs.com>",
   "license": "MIT",
@@ -10,9 +11,11 @@
     "@babel/core": "^7.14.8",
     "@babel/plugin-transform-modules-umd": "^7.14.5",
     "@babel/preset-env": "^7.14.8",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "webpack": "^5.47.0",
+    "webpack-cli": "^4.7.2"
   },
   "scripts": {
-    "build": "cross-env BABEL_ENV=production babel src --out-dir lib"
+    "build": "webpack"
   }
 }

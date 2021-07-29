@@ -1,4 +1,4 @@
-const pkg = require("./package.json");
+import pkg from "./package";
 
 console.log("Tousfactor: ", pkg.name, "v" + pkg.version);
 // check if code run on browsers
