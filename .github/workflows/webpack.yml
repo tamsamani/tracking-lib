@@ -1,11 +1,8 @@
 name: NodeJS with Webpack
 
 on:
-  # manually trigger the workflow
-  dispatch_event:
-    name: webpack
-    payload:
-      branch: master
+  # manually run w/o using the webpack command
+  workflow_dispatch:
 
   # 'push' is the default event
   push:
@@ -18,6 +15,8 @@ on:
       - src/*
     branches:
       - master
+  release:
+    types: [published]
 
 jobs:
   # Build
