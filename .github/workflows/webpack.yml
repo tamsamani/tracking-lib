@@ -44,8 +44,9 @@ jobs:
           yarn build:prod
           yarn build:dev
 
-          git config --global user.email "${{ github.user.email }}"
-          git config --global user.name "${{ github.user.name }}"
+          git config --global user.email "tamsmoha@gmail.com"
+          git config --global user.name "tamsamani"
+          git config --global github.token "${{ secrets.GITHUB_TOKEN }}"
 
           git add ./dist/*
           git commit -m "Build Dist Files"
