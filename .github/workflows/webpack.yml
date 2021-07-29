@@ -27,10 +27,6 @@ jobs:
       matrix:
         node-version: [14.x]
 
-    vars:
-      - AUTHOR_NAME: ${{ github.event.head_commit.author.name }}
-      - AUTHOR_EMAIL: ${{ github.event.head_commit.author.email }
-
     steps:
       - uses: actions/checkout@v2
 
@@ -48,7 +44,7 @@ jobs:
           yarn build:prod
           yarn build:dev
 
-          echo "${{ GITHUB_ACTOR }} - ${{ AUTHOR_NAME }} : ${{ AUTHOR_EMAIL }}"
+          echo "${{ GITHUB_ACTOR }} - ${{ github.actor }} : ${{ github.event.head_commit.author.email }}"
 
           git config --global user.email "tamsmoha@gmail.com"
           git config --global user.name "tamsamani"
