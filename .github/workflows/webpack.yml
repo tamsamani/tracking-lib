@@ -44,7 +44,7 @@ jobs:
           yarn build:prod
           yarn build:dev
 
-          echo "${{ GITHUB_ACTOR }} - ${{ github.actor }} : ${{ github.event.head_commit.author.email }}"
+          echo "- ${{ github.actor }} : ${{ github.event.head_commit.author.email }}"
 
           git config --global user.email "tamsmoha@gmail.com"
           git config --global user.name "tamsamani"
