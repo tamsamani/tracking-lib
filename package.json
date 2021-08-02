@@ -20,5 +20,9 @@
   "scripts": {
     "build:prod": "webpack",
     "build:dev": "webpack --env dev"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.0",
+    "rethinkdb": "^2.4.2"
   }
 }

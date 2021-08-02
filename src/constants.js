@@ -1,5 +1,6 @@
 // constants for key of api related to the client
 export const URL_API_KEY = "apiKey";
+export const URL_TRACK_KEY = "track";
 
 // constants for session and local storage
 export const SESSION_STORAGE_KEY = "tousfacteurs:session";
