@@ -13,7 +13,7 @@ const mainApp = {
 };
 
 async function useAPI(key, method, data) {
-  const body = method.contains(/get|delete/i) ? undefined : data;
+  const body = /get|delete/i.test(method) ? undefined : data;
 
   try {
     const response = await fetch(`https://jsonblob.com/api/${key}`, {

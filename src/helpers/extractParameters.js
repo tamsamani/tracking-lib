@@ -12,7 +12,7 @@ export default function extractParamters() {
   const apiKey = paramsObj.get(URL_API_KEY);
 
   // get track ids from paramsObj
-  const track = !paramsObj.get(URL_TRACK_KEY).contains(/^(false|0|none)$/);
+  const track = !/^(false|0|none)$/i.test(paramsObj.get(URL_TRACK_KEY));
 
   // get callback name function from paramsObj
   const callbackName = paramsObj.get("callback");

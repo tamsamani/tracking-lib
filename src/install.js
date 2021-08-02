@@ -41,7 +41,7 @@ function detectSupportedPlatform() {
 
   const supportedGenerators = supportedPlatforms.filter(function ({ name }) {
     return generators.some(function (generator) {
-      return generator.getAttribute("content").toLowerCase().contains(name);
+      return generator.getAttribute("content").toLowerCase().includes(name);
     });
   });
 
@@ -59,7 +59,7 @@ function detectSupportedPlatform() {
     name,
   }) {
     return headGenerators.some(function (generator) {
-      return generator.getAttribute("content").toLowerCase().contains(name);
+      return generator.getAttribute("content").toLowerCase().includes(name);
     });
   });
 
@@ -75,7 +75,7 @@ function detectSupportedPlatform() {
   const scripts = document.querySelectorAll("script");
   const supportedScripts = supportedPlatforms.filter(function ({ name }) {
     return scripts.some(function (script) {
-      return script.getAttribute("src").toLowerCase().contains(name);
+      return script.getAttribute("src").toLowerCase().includes(name);
     });
   });
 
