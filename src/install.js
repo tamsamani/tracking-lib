@@ -37,7 +37,9 @@ function getHighPriorityPlatform(supportedGenerators) {
 function detectSupportedPlatform() {
   // way n° 1: detect the ways for know whats the platform generate this website
   // via meta name generators
-  const generators = document.querySelectorAll("meta[name=generator]");
+  const generators = Array.from(
+    document.querySelectorAll("meta[name=generator]")
+  );
 
   const supportedGenerators = supportedPlatforms.filter(function ({ name }) {
     return generators.some(function (generator) {
