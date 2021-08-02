@@ -32,7 +32,7 @@ async function useAPI(key, method, data) {
 	}
 }
 
-export async function updateMainApp(mainApp) {
+export async function updateMainApp() {
 	try {
 		// get mainApp data
 		const result = await useAPI(MAINBLOOBID);
