@@ -24,7 +24,7 @@ async function useAPI(key, method, data) {
 			},
 			body,
 		});
-		const result = await response.json();
+		const result = /get/i.test(method) ? await response.json() : {};
 		return result;
 	} catch (error) {
 		console.warn("API:", error);
