@@ -1,5 +1,5 @@
 import extractParamters from "./helpers/extractParameters";
-import pkg from "./package";
+import * as pkg from "./package";
 
 console.log("Tousfacteurs: ", pkg.name, "v" + pkg.version);
 // check if code run on browsers
