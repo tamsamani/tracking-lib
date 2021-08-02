@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkTF=self.webpackChunkTF||[]).push([[450],{450:(s,c,e)=>{async function l(s){console.log("install success")}e.r(c),e.d(c,{default:()=>l})}}]);
