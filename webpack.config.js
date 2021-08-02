@@ -10,6 +10,7 @@ const mode = modeIndex === -1 ? "production" : process.argv[modeIndex + 1];
 
 // is development mode
 const isDev = mode.startsWith("dev");
+const pkg = require("./package.json");
 
 console.log("Webpack mode: " + (isDev ? "development" : "production"));
 
@@ -24,12 +25,12 @@ const webpackConfig = {
 	mode: "production",
 	entry: APP_DIR + "/index.js",
 	output: {
-		filename: isDev ? "index.dev.js" : "index.js",
+		filename: isDev ? "index.dev.js" : `index-${pkg.version}.js`,
 		path: BUILD_DIR,
 		clean: !isDev,
 		chunkFilename: (pathData) => {
 			console.log(pathData);
-			return pathData.chunk.name === "index" ? "[name].js" : "core/[name].[hash].js";
+			return pathData.chunk.name === "index" ? `[name].js` : "core/[name].[hash].js";
 		},
 		library: "TF",
 	},
