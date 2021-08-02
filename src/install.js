@@ -96,7 +96,7 @@ async function getTrackCore(platform) {
 	return {
 		platform: platform,
 		declareReferedCustomer(collectedData) {
-			console.log("declareReferedCustomer", collectedData, mainApp);
+			console.log("declareReferedCustomer", collectedData, "\n", mainApp);
 			return "Customer";
 		},
 	};

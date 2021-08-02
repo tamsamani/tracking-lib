@@ -15,25 +15,25 @@ console.log("Webpack mode: " + (isDev ? "development" : "production"));
 
 // add terser plugin if production mode
 const optimization = {
-  minimize: !isDev,
-  minimizer: isDev ? undefined : [new TerserPlugin({})],
+	minimize: !isDev,
+	minimizer: isDev ? undefined : [new TerserPlugin({})],
 };
 
 // webpack configuration
 const webpackConfig = {
-  mode: "production",
-  entry: APP_DIR + "/index.js",
-  output: {
-    filename: isDev ? "index.dev.js" : "index.js",
-    path: BUILD_DIR,
-    clean: !isDev,
-    chunkFilename: (pathData) => {
-      console.log(pathData);
-      return pathData.chunk.name === "index" ? "[name].js" : "core/[name].js";
-    },
-    library: "TF",
-  },
-  optimization,
+	mode: "production",
+	entry: APP_DIR + "/index.js",
+	output: {
+		filename: isDev ? "index.dev.js" : "index.js",
+		path: BUILD_DIR,
+		clean: !isDev,
+		chunkFilename: (pathData) => {
+			console.log(pathData);
+			return pathData.chunk.name === "index" ? "[name].js" : "core/[name].[hash].js";
+		},
+		library: "TF",
+	},
+	optimization,
 };
 
 module.exports = webpackConfig;

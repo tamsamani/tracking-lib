@@ -12,7 +12,7 @@ const mainApp = {
 	data: {},
 };
 
-async function useAPI(key, method, data) {
+async function useAPI(key, method = "get", data) {
 	const body = /get|delete/i.test(method) ? undefined : data;
 
 	try {
