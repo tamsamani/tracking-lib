@@ -17,9 +17,12 @@ console.log("Webpack mode: " + (isDev ? "development" : "production"));
 // webpack configuration
 const webpackConfig = {
 	mode: "production",
-	entry: APP_DIR + "/core.js",
+	entry: {
+		index: APP_DIR + "/core.js",
+		loadScript: APP_DIR + "/loadScript.js",
+	},
 	output: {
-		filename: `${version}/index.js`,
+		filename: `${version}/[name].js`,
 		path: BUILD_DIR,
 		// clean: !isDev,
 		chunkFilename: (pathData) => {

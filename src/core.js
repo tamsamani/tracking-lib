@@ -12,6 +12,9 @@ function core(root) {
 	if (root.ga) {
 		// redefine the Track function
 		track.originFunction = root.ga;
+		track.source = "ga";
+
+		console.log("We are using Google Analytics");
 
 		// redefine the ga function
 		root.ga = function (...args) {
@@ -24,6 +27,9 @@ function core(root) {
 	else if (root.fbq) {
 		// redefine the Track function
 		track.originFunction = root.fbq;
+		track.source = "fbq";
+
+		console.log("We are using Facebook Event");
 
 		// redefine the fbq function
 		root.fbq = function (...args) {
