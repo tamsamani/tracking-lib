@@ -15,10 +15,11 @@ function core(root) {
 		console.log("We are using Google Analytics");
 
 		// redefine the ga function
+		const tempGa = root.ga;
 		root.ga = function (...args) {
 			return track({
 				source: "ga",
-				originFunction: root.ga,
+				originFunction: tempGa,
 				args,
 			});
 		};
@@ -31,10 +32,11 @@ function core(root) {
 		console.log("We are using Facebook Event");
 
 		// redefine the fbq function
+		const tempFbq = root.fbq;
 		root.fbq = function (...args) {
 			return track({
 				source: "fbq",
-				originFunction: root.fbq,
+				originFunction: tempFbq,
 				args,
 			});
 		};
