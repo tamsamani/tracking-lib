@@ -4,37 +4,39 @@ function core(root) {
 	console.log("initializing...");
 
 	// our Track function
-	const track = function (...args) {
-		console.log("We tracked:", args);
+	const track = function ({ source, originFunction, args }) {
+		console.log("We tracked:", source, args);
+
+		return originFunction(...args);
 	};
 
 	// check if google analytics is enabled
 	if (root.ga) {
-		// redefine the Track function
-		track.originFunction = root.ga;
-		track.source = "ga";
-
 		console.log("We are using Google Analytics");
 
 		// redefine the ga function
 		root.ga = function (...args) {
-			track(...args);
-			return track.originFunction(...args);
+			return track({
+				source: "ga",
+				originFunction: root.ga,
+				args,
+			});
 		};
 	}
 
-	// else check if facebook events are enabled
-	else if (root.fbq) {
+	// check if facebook events are enabled
+	if (root.fbq) {
 		// redefine the Track function
-		track.originFunction = root.fbq;
-		track.source = "fbq";
 
 		console.log("We are using Facebook Event");
 
 		// redefine the fbq function
 		root.fbq = function (...args) {
-			track(...args);
-			return track.originFunction(...args);
+			return track({
+				source: "fbq",
+				originFunction: root.fbq,
+				args,
+			});
 		};
 	} else {
 		console.log("No analytics library found.");

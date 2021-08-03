@@ -24,7 +24,7 @@ const webpackConfig = {
 	output: {
 		filename: `${version}/[name].js`,
 		path: BUILD_DIR,
-		// clean: !isDev,
+		clean: true,
 		chunkFilename: (pathData) => {
 			// console.log(pathData);
 			return pathData.chunk.name === "index" ? `${version}/[name].js` : version + "/[name].js";
