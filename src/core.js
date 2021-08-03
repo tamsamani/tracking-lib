@@ -40,8 +40,6 @@ function core(root) {
 				args,
 			});
 		};
-	} else {
-		console.log("No analytics library found.");
 	}
 
 	return track;
