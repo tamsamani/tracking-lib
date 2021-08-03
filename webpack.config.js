@@ -10,31 +10,28 @@ const mode = modeIndex === -1 ? "production" : process.argv[modeIndex + 1];
 
 // is development mode
 const isDev = mode.startsWith("dev");
-const pkg = require("./package.json");
+const version = require("./package.json").version;
 
 console.log("Webpack mode: " + (isDev ? "development" : "production"));
-
-// add terser plugin if production mode
-const optimization = {
-	minimize: !isDev,
-	minimizer: isDev ? undefined : [new TerserPlugin({})],
-};
 
 // webpack configuration
 const webpackConfig = {
 	mode: "production",
-	entry: APP_DIR + "/index.js",
+	entry: APP_DIR + "/core.js",
 	output: {
-		filename: isDev ? "index.dev.js" : `index-${pkg.version}.js`,
+		filename: `${version}/index.js`,
 		path: BUILD_DIR,
-		clean: !isDev,
+		// clean: !isDev,
 		chunkFilename: (pathData) => {
-			console.log(pathData);
-			return pathData.chunk.name === "index" ? `[name].js` : "core/[name].[hash].js";
+			// console.log(pathData);
+			return pathData.chunk.name === "index" ? `${version}/[name].js` : version + "/[name].js";
 		},
 		library: "TF",
 	},
-	optimization,
+	optimization: {
+		minimize: true,
+		minimizer: [new TerserPlugin({})],
+	},
 };
 
 module.exports = webpackConfig;
