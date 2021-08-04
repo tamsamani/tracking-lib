@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkTF=self.webpackChunkTF||[]).push([[297],{297:(n,o,l)=>{l.r(o),l.d(o,{default:()=>c});const c=function(n,{source:o,originFunction:l,args:c,...e}){return console.log("installing googleTrackPlugin ...",o),function(n){console.log("googleTrackPlugin called with options",n)}}}}]);
