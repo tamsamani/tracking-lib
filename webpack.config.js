@@ -17,6 +17,7 @@ console.log("Webpack mode: " + (isDev ? "development" : "production"));
 // webpack configuration
 const webpackConfig = {
 	mode: "production",
+	// target: "es5",
 	entry: {
 		index: APP_DIR + "/core.js",
 		loadScript: APP_DIR + "/loadScript.js",
@@ -25,6 +26,7 @@ const webpackConfig = {
 		filename: `${version}/[name].js`,
 		path: BUILD_DIR,
 		clean: true,
+		// chunkFormat: "array-push",
 		chunkFilename: (pathData) => {
 			// console.log(pathData);
 			return pathData.chunk.name === "index" ? `${version}/[name].js` : version + "/[name].js";
@@ -34,6 +36,21 @@ const webpackConfig = {
 	optimization: {
 		minimize: true,
 		minimizer: [new TerserPlugin({})],
+	},
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: /(node_modules)/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/preset-env"],
+						plugins: ["@babel/plugin-transform-runtime"],
+					},
+				},
+			},
+		],
 	},
 };
 
